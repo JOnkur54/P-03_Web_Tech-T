@@ -15,8 +15,14 @@ $errors = $_SESSION['errors'] ?? [];
 $success = $_SESSION['success'] ?? '';
 unset($_SESSION['errors'], $_SESSION['success']);
 
-$doctors = getApprovedDoctors($conn);
+$specializationFilter = isset($_GET['specialization']) ? (int)$_GET['specialization'] : 0;
+
+$doctors = $specializationFilter > 0
+    ? getApprovedDoctors($conn, '', (string)$specializationFilter)
+    : getApprovedDoctors($conn);
+
 $slots = [];
+
 
 if ($doctor_id > 0 && !empty($appointment_date)) {
     $slots = getAvailableSlots($conn, $doctor_id, $appointment_date);
