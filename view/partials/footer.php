@@ -1,5 +1,5 @@
 <style>
-  /* FOOTER */
+ 
   footer {
     text-align: center;
     margin: 40px 0px 0px 0px;
@@ -9,9 +9,12 @@
     color: #ffffff;
   }
 </style>
+</div>
 
 <footer>
   <?php
   echo "<p>Copyright &copy; 1999-" . date("Y") . " MediBook · Hospital Appointment System</p>";
   ?>
 </footer>
+</body>
+</html>

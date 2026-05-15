@@ -34,3 +34,27 @@
 </div>
 
 </div>
+
+ 
+<style>
+.left {
+    width: 200px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.menu a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #e9ecef;  
+}
+</style>

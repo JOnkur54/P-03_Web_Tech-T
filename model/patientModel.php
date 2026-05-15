@@ -313,31 +313,120 @@ function bookAppointment($conn, $data) {
     return mysqli_query($conn, $sql);
 }
 
-function getUpcomingAppointments($conn, $patient_id) {
+function getUpcomingAppointments(
+    $conn,
+    $patient_id
+) {
+
     $patient_id = (int)$patient_id;
-    $sql = "SELECT a.*, u.name AS doctor_name, s.name AS specialization FROM appointments a JOIN doctors d ON d.id = a.doctor_id JOIN users u ON u.id = d.user_id JOIN specializations s ON s.id = d.specialization_id WHERE a.patient_id = $patient_id AND a.appointment_date >= CURDATE() ORDER BY a.appointment_date, a.appointment_time";
-    $result = mysqli_query($conn, $sql);
+
+    $sql =
+        "SELECT
+            a.*,
+            u.name AS doctor_name,
+            s.name AS specialization
+
+        FROM appointments a
+
+        JOIN doctors d
+        ON d.id = a.doctor_id
+
+        JOIN users u
+        ON u.id = d.user_id
+
+        JOIN specializations s
+        ON s.id = d.specialization_id
+
+        WHERE a.patient_id = $patient_id
+
+        AND a.status != 'cancelled'
+
+        AND a.appointment_date >= CURDATE()
+
+        ORDER BY
+        a.appointment_date,
+        a.appointment_time";
+
+    $result =
+        mysqli_query($conn, $sql);
+
     $appointments = [];
-    if ($result && mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
+
+    if (
+        $result &&
+        mysqli_num_rows($result) > 0
+    ) {
+
+        while (
+            $row = mysqli_fetch_assoc($result)
+        ) {
+
             $appointments[] = $row;
         }
     }
+
     return $appointments;
 }
 
-function getPastAppointments($conn, $patient_id) {
+function getPastAppointments(
+    $conn,
+    $patient_id
+) {
+
     $patient_id = (int)$patient_id;
-    $sql = "SELECT a.*, u.name AS doctor_name, s.name AS specialization FROM appointments a JOIN doctors d ON d.id = a.doctor_id JOIN users u ON u.id = d.user_id JOIN specializations s ON s.id = d.specialization_id WHERE a.patient_id = $patient_id AND a.appointment_date < CURDATE() ORDER BY a.appointment_date DESC";
-    $result = mysqli_query($conn, $sql);
+
+    $sql =
+        "SELECT
+            a.*,
+            u.name AS doctor_name,
+            s.name AS specialization
+
+        FROM appointments a
+
+        JOIN doctors d
+        ON d.id = a.doctor_id
+
+        JOIN users u
+        ON u.id = d.user_id
+
+        JOIN specializations s
+        ON s.id = d.specialization_id
+
+        WHERE a.patient_id = $patient_id
+
+        AND (
+            a.appointment_date < CURDATE()
+            OR
+            a.status = 'completed'
+            OR
+            a.status = 'cancelled'
+        )
+
+        ORDER BY
+        a.appointment_date DESC,
+        a.appointment_time DESC";
+
+    $result =
+        mysqli_query($conn, $sql);
+
     $appointments = [];
-    if ($result && mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
+
+    if (
+        $result &&
+        mysqli_num_rows($result) > 0
+    ) {
+
+        while (
+            $row = mysqli_fetch_assoc($result)
+        ) {
+
             $appointments[] = $row;
         }
     }
+
     return $appointments;
 }
+  
 
 function getBillingHistory($conn, $patient_id) {
     $patient_id = (int)$patient_id;
@@ -386,12 +475,7 @@ function getConsultationNoteByAppointment($conn, $appointment_id, $patient_id) {
     return null;
 }
 
-function cancelAppointment($conn, $appointment_id, $patient_id) {
-    $appointment_id = (int)$appointment_id;
-    $patient_id = (int)$patient_id;
-    $sql = "UPDATE appointments SET status = 'cancelled' WHERE id = $appointment_id AND patient_id = $patient_id AND status NOT IN ('cancelled','completed','no_show')";
-    return mysqli_query($conn, $sql);
-}
+
 
 function rescheduleAppointment($conn, $appointment_id, $patient_id, $new_date, $new_time) {
     $appointment_id = (int)$appointment_id;
@@ -400,6 +484,33 @@ function rescheduleAppointment($conn, $appointment_id, $patient_id, $new_date, $
     $new_time = mysqli_real_escape_string($conn, $new_time);
     $sql = "UPDATE appointments SET appointment_date = '$new_date', appointment_time = '$new_time', status = 'pending' WHERE id = $appointment_id AND patient_id = $patient_id AND status IN ('pending','confirmed')";
     return mysqli_query($conn, $sql);
+}
+
+function cancelAppointment(
+    $conn,
+    $appointment_id,
+    $patient_id
+) {
+
+    $appointment_id =
+        (int)$appointment_id;
+
+    $patient_id =
+        (int)$patient_id;
+
+    $sql =
+        "UPDATE appointments
+
+        SET status = 'cancelled'
+
+        WHERE id = $appointment_id
+
+        AND patient_id = $patient_id";
+
+    return mysqli_query(
+        $conn,
+        $sql
+    );
 }
 
 ?>

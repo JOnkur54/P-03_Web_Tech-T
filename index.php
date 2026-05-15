@@ -284,7 +284,7 @@ if (isset($_SESSION['role'])) {
 </section>
 
 <section class="roles" id="roles">
-  <a href="views/auth/login.php?role=patient" class="role-card">
+  <a href="view/hospital appointment booking/login.php?role=patient" class="role-card">
     <div class="role-icon">P</div>
     <h3>Patient</h3>
     <p>Book appointments and view your medical records</p>
@@ -306,7 +306,7 @@ if (isset($_SESSION['role'])) {
   </a>
 </section>
 
-<?php include 'footer/footer.php'; ?>
+<?php include 'view/partials/footer.php'; ?>
 
 </body>
 </html>
