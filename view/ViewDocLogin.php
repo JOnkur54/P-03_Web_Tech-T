@@ -13,6 +13,19 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'doctor') {
     <title>Doctor Login - MediBook</title>
     <link rel="stylesheet" href="css/doctor.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Error message styling */
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 5px;
+            display: block;
+        }
+        .error-input {
+            border-color: #dc3545 !important;
+            outline: none;
+        }
+    </style>
 </head>
 <body class="login-body">
     <div class="login-container">
@@ -34,11 +47,13 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'doctor') {
         <form action="../controllers/ContDocLogin.php" method="POST" class="login-form">
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="doctor@medibook.com" required>
+                <input type="email" id="email" name="email" placeholder="doctor@medibook.com">
+                <span class="error-message" id="emailError"></span>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="••••••••" required>
+                <input type="password" id="password" name="password" placeholder="••••••••">
+                <span class="error-message" id="passwordError"></span>
             </div>
             <div class="form-actions">
                 <div class="remember-me">
@@ -54,5 +69,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'doctor') {
             <p>Don't have an account? Contact the administrator.</p>
         </div>
     </div>
+
+    <script src="js/validate.js" defer></script>
 </body>
 </html>
