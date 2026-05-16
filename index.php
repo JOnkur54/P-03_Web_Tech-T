@@ -4,6 +4,7 @@ if (isset($_SESSION['role'])) {
     header("Location: views/" . $_SESSION['role'] . "/dashboard.php"); exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
