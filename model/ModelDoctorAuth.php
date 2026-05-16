@@ -8,27 +8,6 @@ class ModelDoctorAuth {
     }
 
     public function login($email, $password) {
-        // ========== TEMPORARY BYPASS ==========
-        // Remove this block after testing!
-        if ($email === 'bypass@nothing.net' && $password === 'bypass00') {
-            // Get the first available doctor_id from the database
-            $sql = "SELECT id FROM doctors LIMIT 1";
-            $result = mysqli_query($this->conn, $sql);
-            if ($result && $row = mysqli_fetch_assoc($result)) {
-                $doctor_id = $row['id'];
-            } else {
-                $doctor_id = 1; // fallback if no doctors exist
-            }
-
-            return [
-                'user_id'   => 999,          // dummy user ID
-                'name'      => 'Bypass User',
-                'role'      => 'doctor',
-                'doctor_id' => $doctor_id
-            ];
-        }
-        // =====================================
-
         $sql = "SELECT id, name, password_hash, role FROM users WHERE email = ? AND is_active = 1";
         $stmt = mysqli_prepare($this->conn, $sql);
         
