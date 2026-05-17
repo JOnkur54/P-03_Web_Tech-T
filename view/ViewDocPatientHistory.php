@@ -19,14 +19,11 @@ if (!$patient_id) {
 $consultationModel = new ModelDoctorConsultation($conn);
 $history = $consultationModel->getPatientHistory($doctor_id, $patient_id);
 
-// Get patient name for header
 $patient_name = "Patient";
 if (!empty($history)) {
-    // We can get patient name from the first record if we joined it, but we didn't in getPatientHistory.
-    // Let's quickly get it or assume we can just say "Patient History".
-    // I'll update getPatientHistory to include patient name or just leave it.
-    // Let's assume we know it or just use "Patient".
+    $patient_name = htmlspecialchars($history[0]['patient_name'] ?? 'Patient');
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,26 +32,6 @@ if (!empty($history)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient History - MediBook</title>
     <link rel="stylesheet" href="css/doctor.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Reuse layout */
-        body { display: flex; min-height: 100vh; background-color: #f3f4f6; }
-        .sidebar { width: 250px; background-color: white; border-right: 1px solid var(--light-gray); padding: 20px; display: flex; flex-direction: column; }
-        .sidebar .logo { font-size: 20px; font-weight: 700; margin-bottom: 30px; color: var(--dark); }
-        .sidebar .logo span { color: var(--primary); }
-        .sidebar-nav { list-style: none; flex-grow: 1; }
-        .sidebar-nav li { margin-bottom: 10px; }
-        .sidebar-nav a { display: flex; align-items: center; padding: 12px; border-radius: 8px; text-decoration: none; color: var(--gray); font-size: 14px; font-weight: 500; transition: all 0.2s; }
-        .sidebar-nav a:hover, .sidebar-nav a.active { background-color: var(--secondary); color: var(--primary); }
-        .main-content { flex-grow: 1; padding: 30px; overflow-y: auto; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-        .header h1 { font-size: 24px; font-weight: 700; }
-        .history-card { background-color: white; padding: 20px; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 20px; }
-        .history-card h3 { font-size: 16px; margin-bottom: 10px; color: var(--primary); }
-        .history-card p { font-size: 14px; margin-bottom: 5px; }
-        .logout-btn { margin-top: auto; color: var(--danger); text-decoration: none; font-size: 14px; font-weight: 500; padding: 12px; display: flex; align-items: center; border-radius: 8px; }
-        .logout-btn:hover { background-color: #fee2e2; }
-    </style>
 </head>
 <body>
     <div class="sidebar">
@@ -72,7 +49,7 @@ if (!empty($history)) {
 
     <div class="main-content">
         <div class="header">
-            <h1>Patient History</h1>
+            <h1>Patient History: <?php echo $patient_name; ?></h1>
             <a href="ViewDocDashboard.php" class="btn btn-secondary" style="background-color: var(--secondary); color: var(--primary); text-decoration: none; padding: 10px 15px; border-radius: 8px; font-size: 14px; font-weight: 500;">Back to Dashboard</a>
         </div>
 

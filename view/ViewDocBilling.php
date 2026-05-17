@@ -20,32 +20,6 @@ $stats = $billingModel->getStats($doctor_id);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Earnings & Statistics - MediBook</title>
     <link rel="stylesheet" href="css/doctor.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Reuse layout */
-        body { display: flex; min-height: 100vh; background-color: #f3f4f6; }
-        .sidebar { width: 250px; background-color: white; border-right: 1px solid var(--light-gray); padding: 20px; display: flex; flex-direction: column; }
-        .sidebar .logo { font-size: 20px; font-weight: 700; margin-bottom: 30px; color: var(--dark); }
-        .sidebar .logo span { color: var(--primary); }
-        .sidebar-nav { list-style: none; flex-grow: 1; }
-        .sidebar-nav li { margin-bottom: 10px; }
-        .sidebar-nav a { display: flex; align-items: center; padding: 12px; border-radius: 8px; text-decoration: none; color: var(--gray); font-size: 14px; font-weight: 500; transition: all 0.2s; }
-        .sidebar-nav a:hover, .sidebar-nav a.active { background-color: var(--secondary); color: var(--primary); }
-        .main-content { flex-grow: 1; padding: 30px; overflow-y: auto; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-        .header h1 { font-size: 24px; font-weight: 700; }
-        .section-title { font-size: 18px; font-weight: 600; margin-bottom: 15px; color: var(--dark); margin-top: 30px; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .stat-card { background-color: white; padding: 20px; border-radius: 12px; box-shadow: var(--shadow); }
-        .stat-card h3 { font-size: 14px; color: var(--gray); margin-bottom: 10px; }
-        .stat-card .value { font-size: 28px; font-weight: 700; color: var(--dark); }
-        .card { background-color: white; padding: 25px; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 30px; }
-        table { width: 100%; border-collapse: collapse; text-align: left; }
-        th, td { padding: 12px; border-bottom: 1px solid var(--light-gray); font-size: 14px; }
-        th { background-color: #f9fafb; font-weight: 600; color: var(--gray); }
-        .logout-btn { margin-top: auto; color: var(--danger); text-decoration: none; font-size: 14px; font-weight: 500; padding: 12px; display: flex; align-items: center; border-radius: 8px; }
-        .logout-btn:hover { background-color: #fee2e2; }
-    </style>
 </head>
 <body>
     <div class="sidebar">
