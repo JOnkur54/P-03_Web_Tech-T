@@ -19,7 +19,7 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Arial', sans-serif;
     color: var(--dark);
     background-color: #f3f4f6;
 }
@@ -112,13 +112,17 @@ body {
     gap: 6px;
 }
 
-.forgot-password {
-    color: var(--primary);
-    text-decoration: none;
+.alert {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
 }
 
-.forgot-password:hover {
-    text-decoration: underline;
+.alert-danger {
+    background-color: #fee2e2;
+    color: var(--danger);
+    border: 1px solid #fecaca;
 }
 
 .btn {
@@ -143,22 +147,18 @@ body {
     background-color: var(--primary-hover);
 }
 
+.forgot-password {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
 .login-footer {
     text-align: center;
     margin-top: 20px;
     font-size: 13px;
     color: var(--gray);
-}
-
-.alert {
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    font-size: 14px;
-}
-
-.alert-danger {
-    background-color: #fee2e2;
-    color: var(--danger);
-    border: 1px solid #fecaca;
 }

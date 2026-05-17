@@ -12,9 +12,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'doctor') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Login - MediBook</title>
     <link rel="stylesheet" href="css/doctor.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Error message styling */
         .error-message {
             color: #dc3545;
             font-size: 0.875rem;

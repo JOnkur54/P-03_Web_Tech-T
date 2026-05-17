@@ -20,9 +20,7 @@ $upcomingFollowUps = $appointmentModel->getUpcomingFollowUps($doctor_id);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Appointments - MediBook</title>
     <link rel="stylesheet" href="css/doctor.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reuse dashboard layout styles */
         body { display: flex; min-height: 100vh; background-color: #f3f4f6; }
         .sidebar { width: 250px; background-color: white; border-right: 1px solid var(--light-gray); padding: 20px; display: flex; flex-direction: column; }
         .sidebar .logo { font-size: 20px; font-weight: 700; margin-bottom: 30px; color: var(--dark); }

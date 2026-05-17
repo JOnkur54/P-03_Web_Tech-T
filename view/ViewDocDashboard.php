@@ -19,9 +19,7 @@ $todayAppointments = $appointmentModel->getTodaySchedule($doctor_id);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Dashboard - MediBook</title>
     <link rel="stylesheet" href="css/doctor.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Specific styles for Dashboard layout */
         body {
             display: flex;
             min-height: 100vh;
@@ -281,7 +279,7 @@ $todayAppointments = $appointmentModel->getTodaySchedule($doctor_id);
                     const response = JSON.parse(xhr.responseText);
                     if (response.success) {
                         alert('Patient checked in successfully!');
-                        location.reload(); // Reload to update status
+                        location.reload();
                     } else {
                         alert('Error: ' + response.message);
                     }
