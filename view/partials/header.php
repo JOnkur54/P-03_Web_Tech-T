@@ -1,110 +1,121 @@
-<!DOCTYPE html>
-<html>
+<style>
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #0033a0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
 
-<head>
+.header-left {
+    display: flex;
+    align-items: center;
+}
 
-    <title>Hospital Appointment Booking System</title>
+.header-left h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+}
 
-    <style>
+.header-left h2 .medi {
+    color: white;
+}
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
+.header-left h2 .book {
+    color: #4fc3f7;
+}
 
-        body{
-            font-family:Arial;
-            background:#f1f3f6;
-        }
+.header-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
-        .header{
-            background:#0d6efd;
-            color:white;
-            padding:20px;
-            text-align:center;
-        }
+.header-center h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+}
 
-        .container{
-            display:flex;
-            min-height:80vh;
-        }
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
-        .left{
-            width:20%;
-            background:#dee2e6;
-            padding:20px;
-        }
+.user-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: white;
+    color: #0033a0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+}
 
-        .main{
-            width:60%;
-            padding:20px;
-        }
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-        .right{
-            width:20%;
-            background:#dee2e6;
-            padding:20px;
-        }
+.user-info span {
+    color: white;
+    font-size: 14px;
+}
 
-        .card{
-            background:white;
-            padding:20px;
-            border-radius:5px;
-            margin-bottom:20px;
-        }
+.logout-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s;
+}
 
-        input,
-        textarea,
-        select{
+.logout-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
 
-            width:100%;
-            padding:10px;
-            margin-top:5px;
-            margin-bottom:15px;
-        }
-
-        input[type=submit]{
-
-            background:#0d6efd;
-            color:white;
-            border:none;
-            cursor:pointer;
-        }
-
-        .error{
-            background:#f8d7da;
-            color:#842029;
-            padding:10px;
-            margin-bottom:10px;
-        }
-
-        .success{
-            background:#d1e7dd;
-            color:#0f5132;
-            padding:10px;
-            margin-bottom:10px;
-        }
-
-        .menu a{
-            display:block;
-            padding:10px;
-            background:white;
-            text-decoration:none;
-            color:black;
-            margin-bottom:10px;
-        }
-
-    </style>
-
-</head>
-
-<body>
+/* Add padding to body for fixed header */
+body {
+    padding-top: 60px;
+}
+</style>
 
 <div class="header">
-
-    <h2>Hospital Appointment Booking System</h2>
-
+    <div class="header-left">
+        <h2><span class="medi">Medi</span><span class="book">Book</span></h2>
+    </div>
+    
+    <div class="header-center">
+        <h1>Hospital Management System</h1>
+    </div>
+    
+    <div class="header-right">
+        <div class="user-info">
+            <div class="user-avatar">
+                <?php echo strtoupper(substr($_SESSION['name'], 0, 1)); ?>
+            </div>
+            <span><?php echo htmlspecialchars($_SESSION['name']); ?></span>
+        </div>
+        <a href="../../controllers/logoutController.php" class="logout-btn">Logout</a>
+    </div>
 </div>
-
-<div class="container">

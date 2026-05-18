@@ -1,14 +1,17 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "hospital_db";
+function connect()
+{
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "hospital_db";
 
-$conn = mysqli_connect($host, $user, $pass, $db);
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-if(!$conn){
-    die("Database Connection Failed : " . mysqli_connect_error());
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    return $conn;
 }
-
-?>

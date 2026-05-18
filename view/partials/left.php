@@ -1,41 +1,37 @@
 <div class="left">
+    <div class="menu">
 
-<div class="menu">
+        <a href="patientDashboard.php">Dashboard</a>
 
-<a href="patientDashboard.php">Dashboard</a>
+        <a href="../../controllers/patientProfileController.php">Profile</a>
 
-<a href="profile.php">Profile</a>
+        <a href="../../controllers/patientManageProfileShowController.php">Manage Profile</a>
 
-<a href="manageProfile.php">Manage Profile</a>
+        <a href="../../controllers/patientMedicalHistoryShowController.php">Medical History</a>
 
-<a href="medicalHistory.php">Medical History</a>
+        <a href="../../controllers/patientDependentsShowController.php">Dependents</a>
 
-<a href="dependents.php">Dependents</a>
+        <a href="../../controllers/patientDoctorsShowController.php">Doctors</a>
 
-<a href="doctors.php">Doctors</a>
+        <a href="../../controllers/patientBookAppointmentShowController.php">Book Appointment</a>
 
-<a href="bookAppointment.php">Book Appointment</a>
+        <a href="../../controllers/patientViewAvailableAppointmentsShowController.php">View Available Appointment</a>
 
-<a href="viewAvailableAppointments.php">View available appointment</a>
+        <a href="upcomingAppointments.php">Upcoming Appointments</a>
 
-<a href="upcomingAppointments.php">Upcoming Appointments</a>
+        <a href="../../controllers/patientAppointmentHistoryShowController.php">Appointment History</a>
 
+        <a href="../../controllers/patientBillingShowController.php">Billing</a>
 
-<a href="appointmentHistory.php">Appointment History</a>
+        <a href="../../controllers/patientReviewsShowController.php">Reviews</a>
 
-<a href="billing.php">Billing</a>
+        <a href="announcements.php">Announcements</a>
 
-<a href="reviews.php">Reviews</a>
+        <a href="../../controllers/logout.php">Logout</a>
 
-<a href="announcements.php">Announcements</a>
-
-<a href="../../controllers/logout.php">Logout</a>
-
+    </div>
 </div>
 
-</div>
-
- 
 <style>
 .left {
     width: 200px;
@@ -51,10 +47,9 @@
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
 }
 
 .menu a:hover {
-    background-color: #e9ecef;  
+    background-color: #e9ecef;
 }
 </style>
