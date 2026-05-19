@@ -22,7 +22,6 @@ $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Su
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Availability & Leave - MediBook</title>
     <link rel="stylesheet" href="css/doctor.css">
-        <!-- fixed CSS -->
     <style>
         body { display: flex; min-height: 100vh; background-color: #f3f4f6; }
         .sidebar { width: 250px; background-color: white; border-right: 1px solid var(--light-gray); padding: 20px; display: flex; flex-direction: column; }
@@ -42,9 +41,12 @@ $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Su
         th { background-color: #f9fafb; font-weight: 600; color: var(--gray); }
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: var(--dark); }
-        .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid var(--light-gray); border-radius: 8px; font-size: 14px; }
+        .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid var(--light-gray); border-radius: 8px; font-size: 14px; box-sizing: border-box; }
         .logout-btn { margin-top: auto; color: var(--danger); text-decoration: none; font-size: 14px; font-weight: 500; padding: 12px; display: flex; align-items: center; border-radius: 8px; }
         .logout-btn:hover { background-color: #fee2e2; }
+        /* JS Validation Styles */
+        .error-text { color: #dc2626; font-size: 12px; margin-top: 4px; display: block; min-height: 16px; }
+        .error-border { border-color: #dc2626; }
     </style>
 </head>
 <body>
@@ -74,7 +76,7 @@ $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Su
 
         <div class="section-title">Weekly Availability</div>
         <div class="card">
-            <form action="../controllers/ContDocAvailability.php" method="POST">
+            <form id="availabilityForm" action="../controllers/ContDocAvailability.php" method="POST">
                 <input type="hidden" name="action" value="update_availability">
                 <table>
                     <thead>
@@ -98,13 +100,15 @@ $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Su
                             <tr>
                                 <td><?php echo $day; ?></td>
                                 <td>
-                                    <input type="checkbox" name="avail[<?php echo $day; ?>][is_available]" value="1" <?php echo $is_avail ? 'checked' : ''; ?>>
+                                    <input type="checkbox" id="avail_checkbox_<?php echo $day; ?>" name="avail[<?php echo $day; ?>][is_available]" value="1" <?php echo $is_avail ? 'checked' : ''; ?>>
                                 </td>
                                 <td>
-                                    <input type="time" name="avail[<?php echo $day; ?>][start_time]" value="<?php echo date('H:i', strtotime($start)); ?>">
+                                    <input type="time" id="avail_start_<?php echo $day; ?>" name="avail[<?php echo $day; ?>][start_time]" value="<?php echo date('H:i', strtotime($start)); ?>">
+                                    <span class="error-text" id="avail_start_error_<?php echo $day; ?>"></span>
                                 </td>
                                 <td>
-                                    <input type="time" name="avail[<?php echo $day; ?>][end_time]" value="<?php echo date('H:i', strtotime($end)); ?>">
+                                    <input type="time" id="avail_end_<?php echo $day; ?>" name="avail[<?php echo $day; ?>][end_time]" value="<?php echo date('H:i', strtotime($end)); ?>">
+                                    <span class="error-text" id="avail_end_error_<?php echo $day; ?>"></span>
                                 </td>
                                 <td>
                                     <select name="avail[<?php echo $day; ?>][slot_duration]">
@@ -124,11 +128,12 @@ $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Su
 
         <div class="section-title">Mark Leave / Unavailable Dates</div>
         <div class="card">
-            <form action="../controllers/ContDocAvailability.php" method="POST" style="display: flex; gap: 20px; align-items: flex-end;">
+            <form id="leaveForm" action="../controllers/ContDocAvailability.php" method="POST" style="display: flex; gap: 20px; align-items: flex-end;">
                 <input type="hidden" name="action" value="add_leave">
                 <div class="form-group" style="flex: 1;">
                     <label for="leave_date">Date</label>
-                    <input type="date" id="leave_date" name="leave_date" required min="<?php echo date('Y-m-d'); ?>">
+                    <input type="date" id="leave_date" name="leave_date">
+                    <span class="error-text" id="leave_date_error"></span>
                 </div>
                 <div class="form-group" style="flex: 2;">
                     <label for="reason">Reason (Optional)</label>
@@ -166,5 +171,7 @@ $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Su
             </table>
         </div>
     </div>
+
+    <script src="js/validate_availability.js" defer></script>
 </body>
 </html>
