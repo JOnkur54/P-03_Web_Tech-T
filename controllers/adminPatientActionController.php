@@ -34,3 +34,4 @@ close($conn);
 
 header("Location: ../controllers/adminManagePatientsController.php");
 exit();
+?>
