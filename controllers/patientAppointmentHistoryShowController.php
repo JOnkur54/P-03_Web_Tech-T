@@ -10,22 +10,18 @@ if (!isset($_SESSION['patient_id'])) {
     exit();
 }
 
-$selected_doctor_id = isset($_GET['doctor_id']) ? (int)$_GET['doctor_id'] : 0;
-
-$conn = connect();
-$doctors = getApprovedDoctors($conn);
+$conn    = connect();
 $patient = getPatientByUserId($conn, $_SESSION['patient_id']);
 
-$dependents = [];
+$past_appointments = [];
 if ($patient && isset($patient['id'])) {
-    $dependents = getPatientDependents($conn, $patient['id']);
+    $past_appointments = getPastAppointments($conn, $patient['id']);
 }
 
 close($conn);
 
-$_SESSION['doctors'] = $doctors;
-$_SESSION['dependents'] = $dependents;
-$_SESSION['selected_doctor_id'] = $selected_doctor_id;
+$_SESSION['past_appointments'] = $past_appointments;
 
-header("Location: ../view/hospital_patient/patientBookAppointment.php");
+header("Location: ../view/hospital_patient/patientAppointmentHistory.php");
 exit();
+?>

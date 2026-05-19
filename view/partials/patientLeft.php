@@ -8,7 +8,7 @@
         <a href="../../controllers/patientDoctorsShowController.php">Browse Doctors</a>
         <a href="../../controllers/patientViewAvailableAppointmentsShowController.php">View Slots</a>
         <a href="../../controllers/patientBookAppointmentShowController.php">Book Appointment</a>
-        <a href="upcomingAppointments.php">Upcoming Appointments</a>
+        <a href="../../controllers/patientUpcomingAppointmentsController.php">Upcoming Appointments</a>
         <a href="../../controllers/patientAppointmentHistoryShowController.php">Appointment History</a>
         <a href="../../controllers/patientBillingShowController.php">Billing</a>
         <a href="../../controllers/patientReviewsShowController.php">Reviews</a>

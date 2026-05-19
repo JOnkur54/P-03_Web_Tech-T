@@ -1,9 +1,16 @@
 <?php
 session_start();
-if (!isset($_SESSION['patient_id'])) { header("Location: ../../controllers/patientUpcomingAppointmentsController.php"); exit(); }
-$appointments = isset($_SESSION['appointments']) ? $_SESSION['appointments'] : [];
-$errors       = isset($_SESSION['errors'])       ? $_SESSION['errors']       : [];
-$success      = isset($_SESSION['success'])      ? $_SESSION['success']      : "";
+if (!isset($_SESSION['patient_id'])) {
+    header("Location: patientLogin.php");
+    exit();
+}
+if (!isset($_SESSION['appointments'])) {
+    header("Location: ../../controllers/patientUpcomingAppointmentsController.php");
+    exit();
+}
+$appointments = $_SESSION['appointments'];
+$errors       = isset($_SESSION['errors'])  ? $_SESSION['errors']  : [];
+$success      = isset($_SESSION['success']) ? $_SESSION['success'] : "";
 unset($_SESSION['appointments'], $_SESSION['errors'], $_SESSION['success']);
 ?>
 <!DOCTYPE html>

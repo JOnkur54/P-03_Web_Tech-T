@@ -10,30 +10,26 @@ if (!isset($_SESSION['patient_id'])) {
     exit();
 }
 
-$_SESSION['errors'] = [];
+$_SESSION['errors']  = [];
 $_SESSION['success'] = "";
 
-/*
-|--------------------------------------------------------------------------
-| Cancel Appointment
-|--------------------------------------------------------------------------
-*/
+/* ── Cancel Appointment ─────────────────────────────────────────── */
 if (isset($_GET['action']) && $_GET['action'] == "cancel") {
 
     $appointment_id = (int)$_GET['id'];
 
-    $conn = connect();
+    $conn    = connect();
     $patient = getPatientByUserId($conn, $_SESSION['patient_id']);
 
     if (!$patient) {
         close($conn);
         $_SESSION['errors'] = ["Patient not found."];
-        header("Location: ../view/hospital_patient/patientUpcomingAppointments.php");
+        header("Location: ../controllers/patientUpcomingAppointmentsController.php");
         exit();
     }
 
     $patient_id = $patient['id'];
-    $status = cancelAppointment($conn, $appointment_id, $patient_id);
+    $status     = cancelAppointment($conn, $appointment_id, $patient_id);
     close($conn);
 
     if ($status) {
@@ -42,44 +38,51 @@ if (isset($_GET['action']) && $_GET['action'] == "cancel") {
         $_SESSION['errors'] = ["Failed to cancel appointment."];
     }
 
-    header("Location: ../view/hospital_patient/patientUpcomingAppointments.php");
+    header("Location: ../controllers/patientUpcomingAppointmentsController.php");
     exit();
 }
 
-/*
-|--------------------------------------------------------------------------
-| Book Appointment
-|--------------------------------------------------------------------------
-*/
+/* ── Book Appointment ───────────────────────────────────────────── */
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['action']) && $_POST['action'] == "book") {
 
-    $doctor_id = (int)$_POST['doctor_id'];
-    $appointment_date = $_POST['appointment_date'];
-    $appointment_time = $_POST['appointment_time'];
-    $reason = $_POST['reason'];
+    $doctor_id        = (int)$_POST['doctor_id'];
+    $appointment_date = isset($_POST['appointment_date']) ? trim($_POST['appointment_date']) : "";
+    $appointment_time = isset($_POST['appointment_time']) ? trim($_POST['appointment_time']) : "";
+    $reason           = isset($_POST['reason'])           ? trim($_POST['reason'])           : "";
+    $booking_for      = isset($_POST['booking_for'])      ? trim($_POST['booking_for'])      : "self";
 
     if ($doctor_id == 0 || $appointment_date == "" || $appointment_time == "") {
         $_SESSION['errors'] = ["Please fill in all required fields."];
-        header("Location: ../view/hospital_patient/patientBookAppointment.php");
+        header("Location: ../controllers/patientBookAppointmentShowController.php");
         exit();
     }
 
-    $conn = connect();
+    $conn    = connect();
     $patient = getPatientByUserId($conn, $_SESSION['patient_id']);
 
     if (!$patient) {
         close($conn);
         $_SESSION['errors'] = ["Patient profile not found."];
-        header("Location: ../view/hospital_patient/patientBookAppointment.php");
+        header("Location: ../controllers/patientBookAppointmentShowController.php");
         exit();
     }
 
+    $patient_id = $patient['id'];
+
+    if ($booking_for != "self" && strpos($booking_for, "dependent_") === 0) {
+        $dep_id    = (int)str_replace("dependent_", "", $booking_for);
+        $dependent = getDependentById($conn, $dep_id, $patient_id);
+        if ($dependent) {
+            $patient_id = isset($dependent['patient_id']) ? (int)$dependent['patient_id'] : $patient_id;
+        }
+    }
+
     $data = [
-        'patient_id' => $patient['id'],
-        'doctor_id' => $doctor_id,
+        'patient_id'       => $patient_id,
+        'doctor_id'        => $doctor_id,
         'appointment_date' => $appointment_date,
         'appointment_time' => $appointment_time,
-        'reason' => $reason
+        'reason'           => $reason,
     ];
 
     $status = bookAppointment($conn, $data);
@@ -87,11 +90,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['action']) && $_POST['a
 
     if ($status) {
         $_SESSION['success'] = "Appointment booked successfully.";
+        header("Location: ../controllers/patientUpcomingAppointmentsController.php");
     } else {
         $_SESSION['errors'] = ["Failed to book appointment."];
+        header("Location: ../controllers/patientBookAppointmentShowController.php");
     }
-
-    header("Location: ../view/hospital_patient/patientBookAppointment.php");
     exit();
 }
 

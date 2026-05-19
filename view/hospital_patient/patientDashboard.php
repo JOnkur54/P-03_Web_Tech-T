@@ -23,7 +23,7 @@ if (!isset($_SESSION['patient_id'])) { header("Location: patientLogin.php"); exi
         <h3>Quick Actions</h3>
         <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;">
             <a href="../../controllers/patientBookAppointmentShowController.php" class="btn btn-primary">Book Appointment</a>
-            <a href="upcomingAppointments.php" class="btn btn-info">My Appointments</a>
+            <a href="../../controllers/patientUpcomingAppointmentsController.php" class="btn btn-info">My Appointments</a>
             <a href="../../controllers/patientDoctorsShowController.php" class="btn btn-success">Browse Doctors</a>
             <a href="../../controllers/patientBillingShowController.php" class="btn btn-warning">Check Billing</a>
             <a href="../../controllers/patientManageProfileShowController.php" class="btn btn-primary">Manage Profile</a>

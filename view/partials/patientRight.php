@@ -3,7 +3,7 @@
         <h3>Quick Actions</h3>
         <div class="quick-links">
             <a href="../../controllers/patientBookAppointmentShowController.php">Book Appointment</a>
-            <a href="upcomingAppointments.php">My Appointments</a>
+            <a href="../../controllers/patientUpcomingAppointmentsController.php">My Appointments</a>
             <a href="../../controllers/patientBillingShowController.php">Billing</a>
             <a href="../../controllers/patientDoctorsShowController.php">Find Doctor</a>
             <a href="../../controllers/patientAnnouncementsShowController.php">Announcements</a>

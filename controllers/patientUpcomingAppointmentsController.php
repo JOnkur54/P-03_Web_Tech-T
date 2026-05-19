@@ -13,18 +13,17 @@ if (!isset($_SESSION['patient_id'])) {
 $conn    = connect();
 $patient = getPatientByUserId($conn, $_SESSION['patient_id']);
 
-$reviews         = [];
-$pending_reviews = [];
-
+$appointments = [];
 if ($patient && isset($patient['id'])) {
-    $reviews         = getDoctorReviews($conn, $patient['id']);
-    $pending_reviews = getAppointmentsPendingReview($conn, $patient['id']);
+    $appointments = getUpcomingAppointments($conn, $patient['id']);
 }
 
 close($conn);
 
-$_SESSION['reviews']         = $reviews;
-$_SESSION['pending_reviews'] = $pending_reviews;
+$_SESSION['appointments'] = $appointments;
+$_SESSION['success']      = isset($_SESSION['success']) ? $_SESSION['success'] : "";
+$_SESSION['errors']       = isset($_SESSION['errors'])  ? $_SESSION['errors']  : [];
 
-header("Location: ../view/hospital_patient/patientReviews.php");
+header("Location: ../view/hospital_patient/upcomingAppointments.php");
 exit();
+?>
