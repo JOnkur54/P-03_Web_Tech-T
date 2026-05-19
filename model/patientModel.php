@@ -375,7 +375,7 @@ function getDependentById($conn, $dependent_id, $patient_id) {
     $dependent_id = (int)$dependent_id;
     $patient_id = (int)$patient_id;
     
-    $sql = "SELECT * FROM dependents WHERE id = $dependent_id AND patient_id = $patient_id LIMIT 1";
+    $sql = "SELECT * FROM dependents WHERE id = $dependent_id AND primary_patient_id = $patient_id LIMIT 1";
     $result = mysqli_query($conn, $sql);
     
     if ($result && mysqli_num_rows($result) > 0) {
@@ -399,7 +399,7 @@ function updateDependent($conn, $dependent_id, $patient_id, $data) {
             date_of_birth = '$dob',
             relationship = '$relationship',
             blood_group = '$blood_group'
-            WHERE id = $dependent_id AND patient_id = $patient_id";
+            WHERE id = $dependent_id AND primary_patient_id = $patient_id";
     
     return mysqli_query($conn, $sql);
 }
@@ -653,4 +653,31 @@ function getAvailableSlots($conn, $doctor_id, $date) {
     }
     
     return $slots;
+}
+function getPatientAnnouncementsAll($conn)
+{
+    $sql = "SELECT * FROM announcements
+            WHERE target_role IN ('all', 'patient')
+            ORDER BY published_at DESC";
+    $result = mysqli_query($conn, $sql);
+    $announcements = [];
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $announcements[] = $row;
+        }
+    }
+    return $announcements;
+}
+
+function getAllSpecializationsList($conn)
+{
+    $sql = "SELECT id, name FROM specializations ORDER BY name ASC";
+    $result = mysqli_query($conn, $sql);
+    $specializations = [];
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $specializations[] = $row;
+        }
+    }
+    return $specializations;
 }

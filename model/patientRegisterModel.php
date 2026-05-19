@@ -17,7 +17,7 @@ function registerPatient($conn, $data) {
 
     mysqli_begin_transaction($conn);
 
-    $userSql = "INSERT INTO users (name, email, password_hash, phone, role) 
+    $userSql = " INSERT INTO users (name, email, password_hash, phone, role) 
                 VALUES ('$name', '$email', '$password_hash', '$phone', '$role')";
     
     if (!mysqli_query($conn, $userSql)) {
