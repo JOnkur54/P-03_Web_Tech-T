@@ -10,3 +10,4 @@ $_SESSION['volume_data'] = adminGetVolumeReport($conn);
 close($conn);
 header("Location: ../view/hospital_admin/adminVolumeReport.php");
 exit();
+?>
