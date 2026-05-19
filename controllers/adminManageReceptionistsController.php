@@ -14,5 +14,7 @@ $conn = connect();
 $_SESSION['receptionists'] = adminGetAllReceptionists($conn);
 close($conn);
 
+
 header("Location: ../view/hospital_admin/adminManageReceptionists.php");
 exit();
+?>
