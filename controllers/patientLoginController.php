@@ -23,7 +23,7 @@ $user = getPatientByEmailAndRole($conn, $email, "patient");
 if (!$user) {
     close($conn);
     $_SESSION['errors'] = ["Invalid email or password."];
-    header("Location: ../view/hospital appointment booking/login.php");
+    header("Location: ../view/hospital_patient/PatientLogin.php");
     exit();
 }
 
@@ -43,10 +43,10 @@ close($conn);
 if ($isValid) {
     $_SESSION['patient_id'] = $user['id'];
     $_SESSION['patient_name'] = $user['name'];
-    header("Location: ../view/hospital appointment booking/patientDashboard.php");
+    header("Location: ../view/hospital_patient/PatientDashboard.php");
     exit();
 }
 
 $_SESSION['errors'] = ["Invalid email or password."];
-header("Location: ../view/hospital appointment booking/login.php");
+header("Location: ../view/hospital_patient/PatientLogin.php");
 exit();

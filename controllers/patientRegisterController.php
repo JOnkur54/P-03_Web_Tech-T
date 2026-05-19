@@ -6,12 +6,12 @@ require_once "../model/patientRegisterModel.php";
 require_once "../model/close.php";
 
 if (isset($_SESSION['patient_id'])) {
-    header("Location: ../view/hospital appointment booking/patientDashboard.php");
+    header("Location: ../view/hospital_patient/patientDashboard.php");
     exit();
 }
 
 if ($_SERVER['REQUEST_METHOD'] != "POST") {
-    header("Location: ../view/hospital appointment booking/register.php");
+    header("Location: ../view/hospital_patient/patientRegister.php");
     exit();
 }
 
@@ -59,7 +59,7 @@ if ($dob == "") {
 
 if (!empty($errors)) {
     $_SESSION['errors'] = $errors;
-    header("Location: ../view/hospital appointment booking/register.php");
+    header("Location: ../view/hospital_patient/patientRegister.php");
     exit();
 }
 
@@ -69,7 +69,7 @@ $conn = connect();
 if (patientEmailExists($conn, $email)) {
     close($conn);
     $_SESSION['errors'] = ["Email already registered."];
-    header("Location: ../view/hospital appointment booking/register.php");
+    header("Location: ../view/hospital_patient/patientRegister.php");
     exit();
 }
 
@@ -93,11 +93,11 @@ $data = [
 if (registerPatient($conn, $data)) {
     close($conn);
     $_SESSION['success'] = "Registration successful! Please login to access your account.";
-    header("Location: ../view/hospital appointment booking/register.php");
+    header("Location: ../view/hospital_patient/patientRegister.php");
     exit();
 } else {
     close($conn);
     $_SESSION['errors'] = ["Registration failed. Please try again."];
-    header("Location: ../view/hospital appointment booking/register.php");
+    header("Location: ../view/hospital_patient/patientRegister.php");
     exit();
 }
