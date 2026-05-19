@@ -1,31 +1,31 @@
 <div class="left">
     <div class="menu">
 
-        <a href="../../controllers/adminDashboardController.php">Dashboard</a>
+        <a href="../hospital_admin/adminDashboard.php">Dashboard</a>
 
-        <a href="../../controllers/adminManageDoctorsController.php">Manage Doctors</a>
+        <a href="../hospital_admin/adminManageDoctors.php">Manage Doctors</a>
 
-        <a href="../../controllers/adminManageSpecializationsController.php">Specializations</a>
+        <a href="../hospital_admin/adminManageSpecializations.php">Specializations</a>
 
-        <a href="../../controllers/adminManageReceptionistsController.php">Receptionists</a>
+        <a href="../hospital_admin/adminManageReceptionists.php">Receptionists</a>
 
-        <a href="../../controllers/adminManagePatientsController.php">Patients</a>
+        <a href="../hospital_admin/adminManagePatients.php">Patients</a>
 
-        <a href="../../controllers/adminAppointmentPoliciesController.php">Policies</a>
+        <a href="../hospital_admin/adminAppointmentPolicies.php">Policies</a>
 
-        <a href="../../controllers/adminAllAppointmentsController.php">All Appointments</a>
+        <a href="../hospital_admin/adminAllAppointments.php">All Appointments</a>
 
-        <a href="../../controllers/adminRevenueReportController.php">Revenue Report</a>
+        <a href="../hospital_admin/adminRevenueReport.php">Revenue Report</a>
 
-        <a href="../../controllers/adminVolumeReportController.php">Volume Report</a>
+        <a href="../hospital_admin/adminVolumeReport.php">Volume Report</a>
 
-        <a href="../../controllers/adminDoctorPerformanceController.php">Doctor Performance</a>
+        <a href="../hospital_admin/adminDoctorPerformance.php">Doctor Performance</a>
 
-        <a href="../../controllers/adminComplaintsController.php">Complaints</a>
+        <a href="../hospital_admin/adminComplaints.php">Complaints</a>
 
-        <a href="../../controllers/adminAnnouncementsController.php">Announcements</a>
+        <a href="../hospital_admin/adminAnnouncements.php">Announcements</a>
 
-        <a href="../../controllers/adminBillingDashboardController.php">Billing</a>
+        <a href="../hospital_admin/adminBillingDashboard.php">Billing</a>
 
         <a href="../../controllers/adminLogoutController.php">Logout</a>
 

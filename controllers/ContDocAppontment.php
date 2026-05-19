@@ -11,6 +11,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'doctor') {
 }
 
 include '../model/connect.php';
+$conn = connect();
 include '../model/ModelDoctorAppointment.php';
 
 $appointmentModel = new ModelDoctorAppointment($conn);

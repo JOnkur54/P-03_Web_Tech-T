@@ -6,6 +6,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'doctor') {
 }
 
 include '../model/connect.php';
+$conn = connect();
 include '../model/ModelDoctorBilling.php';
 
 $doctor_id = $_SESSION['doctor_id'];

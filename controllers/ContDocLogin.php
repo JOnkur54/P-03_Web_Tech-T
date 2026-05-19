@@ -1,6 +1,7 @@
 <?php
 session_start();
 include '../model/connect.php';
+$conn = connect();
 include '../model/ModelDoctorAuth.php';
 
 // Handle Logout

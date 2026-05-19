@@ -1,9 +1,5 @@
 <?php
 
-// ------------------------------------------------------------------
-// adminLoginController.php
-// Validates admin credentials and starts a session.
-// ------------------------------------------------------------------
 
 session_start();
 

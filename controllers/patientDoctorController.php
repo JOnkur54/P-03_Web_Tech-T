@@ -12,11 +12,7 @@ if (!isset($_SESSION['patient_id'])) {
     exit();
 }
 
-/*
-|--------------------------------------------------------------------------
-| GET AVAILABLE SLOTS (AJAX)
-|--------------------------------------------------------------------------
-*/
+
 if (isset($_GET['action']) && $_GET['action'] == 'getSlots') {
     
     $doctor_id = isset($_GET['doctor_id']) ? (int)$_GET['doctor_id'] : 0;

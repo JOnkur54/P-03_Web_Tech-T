@@ -6,6 +6,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'doctor') {
 }
 
 include '../model/connect.php';
+$conn = connect();
 include '../model/ModelDoctorConsultation.php';
 
 $appointment_id = $_GET['appointment_id'] ?? 0;

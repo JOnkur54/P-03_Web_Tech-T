@@ -2,12 +2,12 @@
     <div class="card">
         <h3>Quick Actions</h3>
         <div class="quick-links">
-            <a href="../../controllers/adminManageDoctorsController.php">Add Doctor</a>
-            <a href="../../controllers/adminManageSpecializationsController.php">Add Specialization</a>
-            <a href="../../controllers/adminManageReceptionistsController.php">Add Receptionist</a>
-            <a href="../../controllers/adminAnnouncementsController.php">New Announcement</a>
-            <a href="../../controllers/adminAllAppointmentsController.php">View Appointments</a>
-            <a href="../../controllers/adminBillingDashboardController.php">Billing Dashboard</a>
+            <a href="../hospital_admin/adminManageDoctors.php">Add Doctor</a>
+            <a href="../hospital_admin/adminManageSpecializations.php">Add Specialization</a>
+            <a href="../hospital_admin/adminManageReceptionists.php">Add Receptionist</a>
+            <a href="../hospital_admin/adminAnnouncements.php">New Announcement</a>
+            <a href="../hospital_admin/adminAllAppointments.php">View Appointments</a>
+            <a href="../hospital_admin/adminBillingDashboard.php">Billing Dashboard</a>
         </div>
     </div>
 </div>

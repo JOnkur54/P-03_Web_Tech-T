@@ -298,7 +298,7 @@ if (isset($_SESSION['role'])) {
     <h3>Patient</h3>
     <p>Book appointments and view your medical records</p>
   </a>
-  <a href="view/doclogin.php" class="role-card">
+  <a href="view/ViewDocLogin.php" class="role-card">
     <div class="role-icon">D</div>
     <h3>Doctor</h3>
     <p>Manage your schedule and consultations</p>
