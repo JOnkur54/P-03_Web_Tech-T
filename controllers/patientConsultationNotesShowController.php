@@ -6,14 +6,14 @@ require_once "../model/patientModel.php";
 require_once "../model/close.php";
 
 if (!isset($_SESSION['patient_id'])) {
-    header("Location: ../view/hospital appointment booking/login.php");
+    header("Location: ../view/hospital_patient/patientLogin.php");
     exit();
 }
 
 $appointment_id = isset($_GET['appointment_id']) ? (int)$_GET['appointment_id'] : 0;
 
 if ($appointment_id == 0) {
-    header("Location: ../view/hospital appointment booking/appointmentHistory.php");
+    header("Location: ../view/hospital_patient/patientAppointmentHistory.php");
     exit();
 }
 
@@ -29,5 +29,5 @@ close($conn);
 
 $_SESSION['consultation_notes'] = $notes;
 
-header("Location: ../view/hospital appointment booking/consultationNotes.php");
+header("Location: ../view/hospital_patient/patientConsultationNotes.php");
 exit();
