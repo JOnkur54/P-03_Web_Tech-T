@@ -6,7 +6,7 @@ require_once "../model/patientModel.php";
 require_once "../model/close.php";
 
 if (!isset($_SESSION['patient_id'])) {
-    header("Location: ../view/hospital appointment booking/login.php");
+    header("Location: ../view/hospital_patient/patientLogin.php");
     exit();
 }
 
@@ -27,5 +27,5 @@ $_SESSION['doctors'] = $doctors;
 $_SESSION['dependents'] = $dependents;
 $_SESSION['selected_doctor_id'] = $selected_doctor_id;
 
-header("Location: ../view/hospital appointment booking/bookAppointment.php");
+header("Location: ../view/hospital_patient/patientBookAppointment.php");
 exit();
