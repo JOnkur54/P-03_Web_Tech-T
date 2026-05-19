@@ -17,6 +17,7 @@ if ($email == "" || $password == "") {
     exit();
 }
 
+
 $conn = connect();
 $user = receptionistGetUserByEmail($conn, $email);
 

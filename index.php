@@ -239,8 +239,8 @@ if (isset($_SESSION['role'])) {
   <div class="logo">Medi<span>Book</span></div>
   <div>
     <a href="#roles">Roles</a>
-    <a href="views/auth/register.php">Register</a>
-    <a href="views/auth/login.php" class="cta">Login</a>
+    <a href="view/hospital appointment booking/register.php">Register</a>
+    <a href="view/hospital appointment booking/login.php" class="cta">Login</a>
   </div>
 </nav>
 
@@ -249,8 +249,8 @@ if (isset($_SESSION['role'])) {
     <h1>Healthcare,<br><i>simplified</i><br>for everyone.</h1>
     <p>Book appointments, manage schedules, and streamline your hospital — all from one elegant platform.</p>
     <div class="hero-actions">
-      <a href="views/auth/register.php" class="btn btn-dark">Get Started</a>
-      <a href="views/auth/login.php"    class="btn btn-ghost">Staff Login</a>
+      <a href="view/hospital appointment booking/register.php" class="btn btn-dark">Get Started</a>
+      <a href="view/hospital appointment booking/login.php" class="btn btn-ghost">Staff Login</a>
     </div>
   </div>
 
@@ -284,29 +284,29 @@ if (isset($_SESSION['role'])) {
 </section>
 
 <section class="roles" id="roles">
-  <a href="views/auth/login.php?role=patient" class="role-card">
+  <a href="view/hospital appointment booking/login.php?role=patient" class="role-card">
     <div class="role-icon">P</div>
     <h3>Patient</h3>
     <p>Book appointments and view your medical records</p>
   </a>
-  <a href="views/auth/login.php?role=doctor" class="role-card">
+  <a href="view/hospital appointment booking/login.php?role=doctor" class="role-card">
     <div class="role-icon">D</div>
     <h3>Doctor</h3>
     <p>Manage your schedule and consultations</p>
   </a>
-  <a href="views/auth/login.php?role=receptionist" class="role-card">
+  <a href="view/hospital_receptionist/receptionistLogin.php" class="role-card">
     <div class="role-icon">R</div>
     <h3>Receptionist</h3>
     <p>Handle walk-ins, check-ins and payments</p>
   </a>
-  <a href="views/auth/login.php?role=admin" class="role-card">
+  <a href="view/hospital_admin/adminLogin.php" class="role-card">
     <div class="role-icon">A</div>
     <h3>Admin</h3>
     <p>Oversee doctors, staff and reports</p>
   </a>
 </section>
 
-<?php include 'footer/footer.php'; ?>
+<?php include 'view/partials/receptionistFooter.php'; ?>
 
 </body>
 </html>
