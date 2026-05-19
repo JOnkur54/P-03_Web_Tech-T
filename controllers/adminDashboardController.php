@@ -25,3 +25,4 @@ close($conn);
 
 header("Location: ../view/hospital_admin/adminDashboard.php");
 exit();
+?>
