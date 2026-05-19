@@ -17,6 +17,7 @@ $_SESSION['success'] = "";
 $email    = isset($_POST['email'])    ? trim($_POST['email'])    : "";
 $password = isset($_POST['password']) ? trim($_POST['password']) : "";
 
+
 // ── Basic validation ──────────────────────────────────────────────
 if ($email === "" || $password === "") {
     $_SESSION['errors'] = ["Email and password are required."];
