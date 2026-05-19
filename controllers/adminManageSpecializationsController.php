@@ -14,5 +14,7 @@ $conn = connect();
 $_SESSION['specializations'] = adminGetSpecializations($conn);
 close($conn);
 
+
 header("Location: ../view/hospital_admin/adminManageSpecializations.php");
 exit();
+?>
