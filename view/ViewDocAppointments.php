@@ -20,6 +20,35 @@ $upcomingFollowUps = $appointmentModel->getUpcomingFollowUps($doctor_id);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Appointments - MediBook</title>
     <link rel="stylesheet" href="css/doctor.css">
+        <!-- fixed CSS -->
+    <style>
+        body { display: flex; min-height: 100vh; background-color: #f3f4f6; }
+        .sidebar { width: 250px; background-color: white; border-right: 1px solid var(--light-gray); padding: 20px; display: flex; flex-direction: column; }
+        .sidebar .logo { font-size: 20px; font-weight: 700; margin-bottom: 30px; color: var(--dark); }
+        .sidebar .logo span { color: var(--primary); }
+        .sidebar-nav { list-style: none; flex-grow: 1; }
+        .sidebar-nav li { margin-bottom: 10px; }
+        .sidebar-nav a { display: flex; align-items: center; padding: 12px; border-radius: 8px; text-decoration: none; color: var(--gray); font-size: 14px; font-weight: 500; transition: all 0.2s; }
+        .sidebar-nav a:hover, .sidebar-nav a.active { background-color: var(--secondary); color: var(--primary); }
+        .main-content { flex-grow: 1; padding: 30px; overflow-y: auto; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .header h1 { font-size: 24px; font-weight: 700; }
+        .section-title { font-size: 18px; font-weight: 600; margin-bottom: 15px; color: var(--dark); margin-top: 30px; }
+        .table-container { background-color: white; border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; margin-bottom: 30px; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th, td { padding: 15px; border-bottom: 1px solid var(--light-gray); font-size: 14px; }
+        th { background-color: #f9fafb; font-weight: 600; color: var(--gray); }
+        .status-badge { display: inline-block; padding: 4px 8px; border-radius: 100px; font-size: 12px; font-weight: 500; text-transform: capitalize; }
+        .status-pending { background-color: #fef3c7; color: #d97706; }
+        .status-confirmed { background-color: #d1fae5; color: #059669; }
+        .status-checked_in { background-color: #e0f2fe; color: #0284c7; }
+        .status-completed { background-color: #e5e7eb; color: #4b5563; }
+        .status-cancelled { background-color: #fee2e2; color: #dc2626; }
+        .status-no_show { background-color: #f3f4f6; color: #6b7280; }
+        .btn-sm { padding: 6px 12px; font-size: 12px; border-radius: 6px; }
+        .logout-btn { margin-top: auto; color: var(--danger); text-decoration: none; font-size: 14px; font-weight: 500; padding: 12px; display: flex; align-items: center; border-radius: 8px; }
+        .logout-btn:hover { background-color: #fee2e2; }
+    </style>
 </head>
 <body>
     <div class="sidebar">

@@ -21,7 +21,7 @@ $history = $consultationModel->getPatientHistory($doctor_id, $patient_id);
 
 $patient_name = "Patient";
 if (!empty($history)) {
-    $patient_name = htmlspecialchars($history[0]['patient_name'] ?? 'Patient');
+    echo "No previous patients";
 }
 
 ?>
@@ -32,6 +32,25 @@ if (!empty($history)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient History - MediBook</title>
     <link rel="stylesheet" href="css/doctor.css">
+        <!-- fixed CSS -->
+    <style>
+        body { display: flex; min-height: 100vh; background-color: #f3f4f6; }
+        .sidebar { width: 250px; background-color: white; border-right: 1px solid var(--light-gray); padding: 20px; display: flex; flex-direction: column; }
+        .sidebar .logo { font-size: 20px; font-weight: 700; margin-bottom: 30px; color: var(--dark); }
+        .sidebar .logo span { color: var(--primary); }
+        .sidebar-nav { list-style: none; flex-grow: 1; }
+        .sidebar-nav li { margin-bottom: 10px; }
+        .sidebar-nav a { display: flex; align-items: center; padding: 12px; border-radius: 8px; text-decoration: none; color: var(--gray); font-size: 14px; font-weight: 500; transition: all 0.2s; }
+        .sidebar-nav a:hover, .sidebar-nav a.active { background-color: var(--secondary); color: var(--primary); }
+        .main-content { flex-grow: 1; padding: 30px; overflow-y: auto; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .header h1 { font-size: 24px; font-weight: 700; }
+        .history-card { background-color: white; padding: 20px; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 20px; }
+        .history-card h3 { font-size: 16px; margin-bottom: 10px; color: var(--primary); }
+        .history-card p { font-size: 14px; margin-bottom: 5px; }
+        .logout-btn { margin-top: auto; color: var(--danger); text-decoration: none; font-size: 14px; font-weight: 500; padding: 12px; display: flex; align-items: center; border-radius: 8px; }
+        .logout-btn:hover { background-color: #fee2e2; }
+    </style>
 </head>
 <body>
     <div class="sidebar">
