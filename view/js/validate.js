@@ -1,4 +1,3 @@
-// Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.login-form');
     const emailInput = document.getElementById('email');
@@ -6,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailError = document.getElementById('emailError');
     const passwordError = document.getElementById('passwordError');
 
-    // Function to clear all error messages and error styling
     function clearErrors() {
         emailError.textContent = '';
         passwordError.textContent = '';

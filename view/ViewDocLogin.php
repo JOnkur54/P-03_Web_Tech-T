@@ -5,6 +5,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'doctor') {
     exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,20 +13,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'doctor') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Login - MediBook</title>
     <link rel="stylesheet" href="css/doctor.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Error message styling */
-        .error-message {
-            color: #dc3545;
-            font-size: 0.875rem;
-            margin-top: 5px;
-            display: block;
-        }
-        .error-input {
-            border-color: #dc3545 !important;
-            outline: none;
-        }
-    </style>
 </head>
 <body class="login-body">
     <div class="login-container">
@@ -72,4 +59,5 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'doctor') {
 
     <script src="js/validate.js" defer></script>
 </body>
+
 </html>

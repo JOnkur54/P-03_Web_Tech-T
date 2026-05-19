@@ -19,30 +19,6 @@ $reviews = $reviewModel->getReviews($doctor_id);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Reviews - MediBook</title>
     <link rel="stylesheet" href="css/doctor.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Reuse layout */
-        body { display: flex; min-height: 100vh; background-color: #f3f4f6; }
-        .sidebar { width: 250px; background-color: white; border-right: 1px solid var(--light-gray); padding: 20px; display: flex; flex-direction: column; }
-        .sidebar .logo { font-size: 20px; font-weight: 700; margin-bottom: 30px; color: var(--dark); }
-        .sidebar .logo span { color: var(--primary); }
-        .sidebar-nav { list-style: none; flex-grow: 1; }
-        .sidebar-nav li { margin-bottom: 10px; }
-        .sidebar-nav a { display: flex; align-items: center; padding: 12px; border-radius: 8px; text-decoration: none; color: var(--gray); font-size: 14px; font-weight: 500; transition: all 0.2s; }
-        .sidebar-nav a:hover, .sidebar-nav a.active { background-color: var(--secondary); color: var(--primary); }
-        .main-content { flex-grow: 1; padding: 30px; overflow-y: auto; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-        .header h1 { font-size: 24px; font-weight: 700; }
-        .review-card { background-color: white; padding: 20px; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 20px; }
-        .review-card .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .review-card .patient-name { font-weight: 600; font-size: 16px; }
-        .review-card .rating { color: #f59e0b; font-weight: 700; }
-        .review-card .text { font-size: 14px; color: var(--dark); margin-bottom: 15px; }
-        .review-card .reply-box { background-color: #f9fafb; padding: 15px; border-radius: 8px; margin-top: 10px; }
-        .review-card .reply-box textarea { width: 100%; padding: 10px; border: 1px solid var(--light-gray); border-radius: 8px; font-size: 14px; margin-bottom: 10px; }
-        .logout-btn { margin-top: auto; color: var(--danger); text-decoration: none; font-size: 14px; font-weight: 500; padding: 12px; display: flex; align-items: center; border-radius: 8px; }
-        .logout-btn:hover { background-color: #fee2e2; }
-    </style>
 </head>
 <body>
     <div class="sidebar">

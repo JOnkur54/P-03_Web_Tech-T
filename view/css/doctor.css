@@ -18,13 +18,16 @@
     box-sizing: border-box;
 }
 
+/* Base Body Styles */
 body {
     font-family: 'Inter', sans-serif;
     color: var(--dark);
     background-color: #f3f4f6;
+    display: flex;
+    min-height: 100vh;
 }
 
-/* Login Page */
+/* Login Page Styles */
 .login-body {
     display: flex;
     align-items: center;
@@ -70,6 +73,7 @@ body {
     color: var(--gray);
 }
 
+/* Login Form Elements */
 .login-form .form-group {
     margin-bottom: 20px;
 }
@@ -121,6 +125,40 @@ body {
     text-decoration: underline;
 }
 
+.login-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--gray);
+}
+
+/* Alert & Error Styles */
+.alert {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.alert-danger {
+    background-color: #fee2e2;
+    color: var(--danger);
+    border: 1px solid #fecaca;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.error-input {
+    border-color: #dc3545 !important;
+    outline: none;
+}
+
+/* Buttons */
 .btn {
     display: inline-block;
     width: 100%;
@@ -143,22 +181,290 @@ body {
     background-color: var(--primary-hover);
 }
 
-.login-footer {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 13px;
-    color: var(--gray);
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 6px;
 }
 
-.alert {
+/* Sidebar Layout (Doctor Dashboard) */
+.sidebar {
+    width: 250px;
+    background-color: white;
+    border-right: 1px solid var(--light-gray);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .logo {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--dark);
+}
+
+.sidebar .logo span {
+    color: var(--primary);
+}
+
+.sidebar-nav {
+    list-style: none;
+    flex-grow: 1;
+}
+
+.sidebar-nav li {
+    margin-bottom: 10px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
     padding: 12px;
     border-radius: 8px;
-    margin-bottom: 20px;
+    text-decoration: none;
+    color: var(--gray);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+
+.logout-btn {
+    margin-top: auto;
+    color: var(--danger);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.logout-btn:hover {
+    background-color: #fee2e2;
+}
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-profile .name {
+    font-weight: 500;
     font-size: 14px;
 }
 
-.alert-danger {
+.user-profile .role {
+    font-size: 12px;
+    color: var(--gray);
+}
+
+/* Stats Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.stat-card h3 {
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 10px;
+}
+
+.stat-card .value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--dark);
+    margin-top: 30px;
+}
+
+/* Cards & Containers */
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.table-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 15px;
+    border-bottom: 1px solid var(--light-gray);
+    font-size: 14px;
+}
+
+th {
+    background-color: #f9fafb;
+    font-weight: 600;
+    color: var(--gray);
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.status-pending {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.status-confirmed {
+    background-color: #d1fae5;
+    color: #059669;
+}
+
+.status-checked_in {
+    background-color: #e0f2fe;
+    color: #0284c7;
+}
+
+.status-completed {
+    background-color: #e5e7eb;
+    color: #4b5563;
+}
+
+.status-cancelled {
     background-color: #fee2e2;
-    color: var(--danger);
-    border: 1px solid #fecaca;
+    color: #dc2626;
+}
+
+.status-no_show {
+    background-color: #f3f4f6;
+    color: #6b7280;
+}
+
+/* Form Groups (Generic) */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--dark);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* Review Card Specific */
+.review-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.review-card .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.review-card .patient-name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.review-card .rating {
+    color: #f59e0b;
+    font-weight: 700;
+}
+
+.review-card .text {
+    font-size: 14px;
+    color: var(--dark);
+    margin-bottom: 15px;
+}
+
+.review-card .reply-box {
+    background-color: #f9fafb;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.review-card .reply-box textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
