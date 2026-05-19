@@ -239,8 +239,8 @@ if (isset($_SESSION['role'])) {
   <div class="logo">Medi<span>Book</span></div>
   <div>
     <a href="#roles">Roles</a>
-    <a href="view/hospital appointment booking/register.php">Register</a>
-    <a href="view/hospital appointment booking/login.php" class="cta">Login</a>
+    <a href="view/hospital_patient/patientRegister.php">Register</a>
+    <a href="view/hospital_patient/patientLogin.php" class="cta">Login</a>
   </div>
 </nav>
 
@@ -249,8 +249,8 @@ if (isset($_SESSION['role'])) {
     <h1>Healthcare,<br><i>simplified</i><br>for everyone.</h1>
     <p>Book appointments, manage schedules, and streamline your hospital — all from one elegant platform.</p>
     <div class="hero-actions">
-      <a href="view/hospital appointment booking/register.php" class="btn btn-dark">Get Started</a>
-      <a href="view/hospital appointment booking/login.php" class="btn btn-ghost">Staff Login</a>
+      <a href="view/hospital_patient/patientRegister.php" class="btn btn-dark">Get Started</a>
+      <a href="view/hospital_patient/patientLogin.php" class="btn btn-ghost">Staff Login</a>
     </div>
   </div>
 
@@ -284,7 +284,7 @@ if (isset($_SESSION['role'])) {
 </section>
 
 <section class="roles" id="roles">
-  <a href="view/hospital appointment booking/login.php?role=patient" class="role-card">
+  <a href="view/hospital_patient/patientLogin.php" class="role-card">
     <div class="role-icon">P</div>
     <h3>Patient</h3>
     <p>Book appointments and view your medical records</p>
@@ -294,7 +294,7 @@ if (isset($_SESSION['role'])) {
     <h3>Doctor</h3>
     <p>Manage your schedule and consultations</p>
   </a>
-  <a href="view/hospital appointment booking/login.php?role=receptionist" class="role-card">
+  <a href="view/hospital_receptionist/receptionistLogin.php" class="role-card">
     <div class="role-icon">R</div>
     <h3>Receptionist</h3>
     <p>Handle walk-ins, check-ins and payments</p>
@@ -306,7 +306,7 @@ if (isset($_SESSION['role'])) {
   </a>
 </section>
 
-<?php include 'view/partials/footer.php'; ?>
+<?php include 'view/partials/PatientFooter.php'; ?>
 
 </body>
 </html>
