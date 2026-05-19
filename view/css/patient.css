@@ -1,0 +1,121 @@
+/* ================================================================
+   patient.css  —  All patient pages
+   Colors: #0033a0 navy | #4fc3f7 cyan | teal
+================================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: 'Segoe UI', sans-serif; background-color: #f4f6f9; color: #333; padding-top: 60px; }
+
+.layout { display: flex; min-height: calc(100vh - 60px); }
+
+.main { flex: 1; padding: 28px 30px; overflow-x: auto; }
+
+.card { background-color: white; padding: 20px 24px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+
+h2 { margin-bottom: 20px; color: #0033a0; }
+h3 { margin-bottom: 15px; color: #0033a0; }
+
+.success { background-color: #d1e7dd; color: #0f5132; padding: 10px 14px; margin-bottom: 15px; border-radius: 4px; }
+.error   { background-color: #f8d7da; color: #842029; padding: 10px 14px; margin-bottom: 15px; border-radius: 4px; }
+.error ul { padding-left: 16px; margin: 0; }
+
+label { display: block; margin-top: 10px; margin-bottom: 5px; font-weight: bold; font-size: 13px; }
+
+input[type="text"], input[type="email"], input[type="password"],
+input[type="number"], input[type="date"], select, textarea {
+    width: 100%; padding: 10px; margin-bottom: 5px;
+    border: 1px solid #ccc; border-radius: 4px; font-size: 13px;
+}
+
+input[type="submit"] { background-color: #0033a0; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px; }
+input[type="submit"]:hover { background-color: teal; }
+
+span { color: red; font-size: 12px; display: block; margin-bottom: 6px; }
+
+.form-section { background-color: #f8f9fa; padding: 20px; border-radius: 6px; border: 1px solid #dee2e6; margin-bottom: 20px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead tr { background-color: #0033a0; color: #fff; }
+th, td { padding: 10px; text-align: left; border-bottom: 1px solid #dee2e6; }
+tbody tr:hover { background-color: #f0f5ff; }
+
+.btn { display: inline-block; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; cursor: pointer; border: none; }
+.btn-primary { background-color: #0033a0; color: #fff; }
+.btn-success { background-color: #198754; color: #fff; }
+.btn-danger  { background-color: #dc3545; color: #fff; }
+.btn-warning { background-color: #ffc107; color: #000; }
+.btn-info    { background-color: #0dcaf0; color: #000; }
+.btn-primary:hover { background-color: teal; }
+.btn-success:hover { background-color: #157347; }
+
+.badge-pending    { background-color: #fff3cd; color: #856404; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+.badge-confirmed  { background-color: #d1fae5; color: #065f46; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+.badge-checked_in { background-color: #dbeafe; color: #1e40af; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+.badge-completed  { background-color: #e0e7ff; color: #3730a3; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+.badge-cancelled  { background-color: #fee2e2; color: #991b1b; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+.badge-paid       { background-color: #d1fae5; color: #065f46; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+
+.slot-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.slot-btn { background-color: #e8f0fe; color: #0033a0; border: 1px solid #0033a0; padding: 7px 14px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+.slot-btn:hover, .slot-btn.selected { background-color: #0033a0; color: #fff; }
+
+.doctor-card { border-left: 4px solid #0033a0; }
+.doctor-card h3 { color: #0033a0; }
+.view-link { display: inline-block; margin-top: 10px; background-color: #0033a0; color: #fff; padding: 7px 16px; border-radius: 4px; text-decoration: none; font-size: 13px; }
+.view-link:hover { background-color: teal; }
+
+.stars { color: #f59e0b; font-size: 18px; }
+.review-card { background-color: #f8f9fa; padding: 14px; border-radius: 6px; margin-bottom: 12px; border-left: 3px solid #0033a0; }
+.review-date { font-size: 11px; color: #999; margin-top: 6px; }
+
+.note-card { background-color: #f0f5ff; padding: 12px 16px; border-radius: 6px; border-left: 3px solid #0033a0; margin-bottom: 10px; font-size: 13px; }
+
+.announcement-card { background-color: #f8f9fa; padding: 16px; border-radius: 6px; border-left: 4px solid #0033a0; margin-bottom: 14px; }
+.announcement-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+.announcement-date { font-size: 12px; color: #666; }
+.important-badge { background-color: #fee2e2; color: #991b1b; font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+
+.profile-picture-container { text-align: center; margin-bottom: 20px; }
+.profile-picture { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #0033a0; }
+.no-picture { width: 120px; height: 120px; border-radius: 50%; background-color: #e8f0fe; color: #0033a0; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 22px; font-weight: 700; }
+.profile-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #0033a0; }
+
+.doctor-header { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px; }
+.doctor-photo img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #0033a0; }
+.no-photo { width: 100px; height: 100px; border-radius: 50%; background-color: #e8f0fe; color: #0033a0; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; }
+.specialization { color: teal; font-weight: 600; font-size: 14px; }
+.rating-text { font-size: 13px; color: #666; margin-left: 6px; }
+.book-btn { display: inline-block; background-color: teal; color: #fff; padding: 10px 22px; border-radius: 4px; text-decoration: none; font-size: 14px; }
+.book-btn:hover { background-color: #0033a0; }
+.book-action { margin-top: 16px; }
+
+.form-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 10px; }
+.form-group { flex: 1; min-width: 180px; }
+.form-actions { display: flex; gap: 12px; align-items: center; margin-top: 10px; }
+.reset-btn { color: #0033a0; text-decoration: none; font-size: 13px; }
+
+.pending-review { background-color: #f8f9fa; padding: 16px; border-radius: 6px; border-left: 4px solid #f59e0b; margin-bottom: 16px; }
+
+.edit-link  { color: #0033a0; text-decoration: none; font-size: 13px; font-weight: 600; }
+.delete-link{ color: #dc3545; text-decoration: none; font-size: 13px; font-weight: 600; }
+.cancel-btn { display: inline-block; background-color: #6c757d; color: #fff; padding: 5px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; }
+.pay-btn { background-color: #198754; color: #fff; border: none; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+.pay-btn:hover { background-color: #157347; }
+.paid-badge { color: #065f46; font-size: 12px; font-weight: 600; }
+
+.action-buttons { display: flex; gap: 12px; margin-top: 16px; }
+.back-btn { display: inline-block; background-color: #6c757d; color: #fff; padding: 8px 18px; border-radius: 4px; text-decoration: none; font-size: 13px; }
+.print-btn { background-color: #0033a0; color: #fff; border: none; padding: 8px 18px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+.print-btn:hover { background-color: teal; }
+.notes-content, .prescription-content { background-color: #f0f5ff; padding: 14px; border-radius: 6px; font-size: 13px; line-height: 1.7; }
+.appointment-info { background-color: #f8f9fa; padding: 14px; border-radius: 6px; margin-bottom: 16px; font-size: 13px; }
+.appointment-info p { margin-bottom: 6px; }
+
+.login-link { color: #0033a0; font-weight: 600; }
+.login-text { margin-top: 14px; font-size: 13px; text-align: center; }
+
+@media print {
+    .left, .right, .header, input[type="submit"], .btn, .print-btn, .back-btn { display: none !important; }
+    .main { padding: 0; }
+    body { padding-top: 0; }
+}

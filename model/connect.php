@@ -2,24 +2,19 @@
 
 function connect()
 {
-    $host = "localhost";
-    $user = "root";
-    $pass = "";
-    $db   = "hospital_db";
-    $port = 3307;
 
-    $conn = mysqli_connect($host, $user, $pass, $db, $port);
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "hospital_db";
+
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
 
     if (!$conn) {
-        die("Database Connection Failed : " . mysqli_connect_error());
+        die("Connection failed: " . mysqli_connect_error());
+        
     }
 
     return $conn;
 }
 
-function close($conn)
-{
-    mysqli_close($conn);
-}
-
-?>

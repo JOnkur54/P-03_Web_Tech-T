@@ -1,0 +1,230 @@
+/* ================================================================
+   adminManageDoctors.css
+   Shared CSS for all admin pages (except dashboard & login)
+   Colors: navy #0033a0 | cyan #4fc3f7 | teal
+================================================================ */
+
+/* ── Body & base ────────────────────────────────────────────────── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    padding-top: 60px;
+}
+
+/* ── Three-column flex layout ───────────────────────────────────── */
+.layout {
+    display: flex;
+    min-height: calc(100vh - 60px);
+}
+
+/* ── Left sidebar ───────────────────────────────────────────────── */
+.left {
+    width: 220px;
+    min-height: calc(100vh - 60px);
+    background-color: #f8f9fa;
+    padding: 20px 12px;
+    border-right: 1px solid #e0e0e0;
+    flex-shrink: 0;
+}
+
+.menu a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 4px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.menu a:hover {
+    background-color: #0033a0;
+    color: #fff;
+}
+
+/* ── Main content ───────────────────────────────────────────────── */
+.main {
+    flex: 1;
+    padding: 28px 30px;
+    overflow-x: auto;
+}
+
+/* ── Right panel ────────────────────────────────────────────────── */
+.right {
+    width: 240px;
+    padding: 24px 14px;
+    flex-shrink: 0;
+}
+
+.quick-links a {
+    display: block;
+    padding: 9px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+    margin-bottom: 6px;
+    background-color: #f8f9fa;
+    transition: background-color 0.2s;
+}
+
+.quick-links a:hover {
+    background-color: #e8f0fe;
+    color: #0033a0;
+}
+
+/* ── Cards ──────────────────────────────────────────────────────── */
+.card {
+    background-color: white;
+    padding: 20px 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* ── Messages ───────────────────────────────────────────────────── */
+.success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #842029;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+/* ── Typography ─────────────────────────────────────────────────── */
+h2 { margin-bottom: 20px; color: #0033a0; }
+h3 { margin-bottom: 15px; color: #0033a0; }
+
+/* ── Form elements ──────────────────────────────────────────────── */
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+input[type="submit"] {
+    background-color: #0033a0;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover { background-color: teal; }
+
+span { color: red; font-size: 12px; display: block; margin-bottom: 6px; }
+
+/* ── Form section box ───────────────────────────────────────────── */
+.form-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+    margin-bottom: 20px;
+}
+
+/* ── Tables ─────────────────────────────────────────────────────── */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+thead tr { background-color: #0033a0; color: #fff; }
+th, td { padding: 10px; text-align: left; border-bottom: 1px solid #dee2e6; }
+tbody tr:hover { background-color: #f0f5ff; }
+
+/* ── Action buttons ─────────────────────────────────────────────── */
+.btn-approve    { background-color: #198754; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+.btn-reject     { background-color: #dc3545; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+.btn-deactivate { background-color: #6c757d; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+.btn-activate   { background-color: #0dcaf0; color: #000; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+.btn-edit       { background-color: #ffc107; color: #000; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+
+.btn-approve:hover    { background-color: #157347; }
+.btn-reject:hover     { background-color: #bb2d3b; }
+.btn-deactivate:hover { background-color: #5c636a; }
+.btn-edit:hover       { background-color: #e0a800; }
+
+/* ── Status badges ──────────────────────────────────────────────── */
+.badge-approved  { background-color: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 12px; font-size: 11px; }
+.badge-pending   { background-color: #fff3cd; color: #856404; padding: 3px 8px; border-radius: 12px; font-size: 11px; }
+.badge-inactive  { background-color: #f3f4f6; color: #374151; padding: 3px 8px; border-radius: 12px; font-size: 11px; }
+
+/* ── Modal ──────────────────────────────────────────────────────── */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+    background: #fff;
+    border-radius: 8px;
+    padding: 28px;
+    width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-box h3 { margin-bottom: 16px; color: #0033a0; }
+
+.modal-close {
+    float: right;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+}
+
+/* ── Footer spacer ──────────────────────────────────────────────── */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 13px;
+    background-color: teal;
+    color: #fff;
+    margin-top: 40px;
+}
