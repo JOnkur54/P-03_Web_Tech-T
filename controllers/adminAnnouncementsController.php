@@ -9,3 +9,4 @@ $_SESSION['announcements'] = adminGetAnnouncements($conn);
 close($conn);
 header("Location: ../view/hospital_admin/adminAnnouncements.php");
 exit();
+?>
