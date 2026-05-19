@@ -1,10 +1,12 @@
 <?php
-$role = $_GET['role'] ?? '';
+header("Location: ../../view/ViewDocLogin.php");
 
-if ($role === 'doctor') {
-    header("Location: ../../view/ViewDocLogin.php");
-    exit;
-} else {
-    echo "Login page for role: " . htmlspecialchars($role) . " is not implemented yet.";
-}
+// $role = $_GET['role'] ?? '';
+
+// if ($role === 'doctor') {
+//     header("Location: ../../view/ViewDocLogin.php");
+//     exit;
+// } else {
+//     echo "Login page for role: " . htmlspecialchars($role) . " is not implemented yet.";
+// }
 ?>
