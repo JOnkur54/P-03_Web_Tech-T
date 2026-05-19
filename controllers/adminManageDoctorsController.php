@@ -15,5 +15,7 @@ $_SESSION['doctors']         = adminGetAllDoctors($conn);
 $_SESSION['specializations'] = adminGetAllSpecializations($conn);
 close($conn);
 
+
 header("Location: ../view/hospital_admin/adminManageDoctors.php");
 exit();
+?>
