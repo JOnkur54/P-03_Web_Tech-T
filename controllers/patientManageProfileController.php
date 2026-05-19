@@ -6,12 +6,12 @@ require_once "../model/patientModel.php";
 require_once "../model/close.php";
 
 if (!isset($_SESSION['patient_id'])) {
-    header("Location: ../view/hospital appointment booking/login.php");
+    header("Location: ../view/hospital_patient/PatientLogin.php");
     exit();
 }
 
 if ($_SERVER['REQUEST_METHOD'] != "POST") {
-    header("Location: ../view/hospital appointment booking/manageProfile.php");
+    header("Location: ../view/hospital_patient/patientManageProfile.php");
     exit();
 }
 
@@ -51,7 +51,7 @@ if ($action == "upload_picture") {
     close($conn);
     $_SESSION['patient_profile'] = $patient;
 
-    header("Location: ../view/hospital appointment booking/manageProfile.php");
+    header("Location: ../view/hospital_patient/patientManageProfile.php");
     exit();
 }
 
@@ -90,7 +90,7 @@ if ($action == "update_info") {
     close($conn);
     $_SESSION['patient_profile'] = $patient;
 
-    header("Location: ../view/hospital appointment booking/manageProfile.php");
+    header("Location: ../view/hospital_patient/patientManageProfile.php");
     exit();
 }
 
@@ -113,7 +113,7 @@ if ($action == "change_password") {
         close($conn);
         $_SESSION['patient_profile'] = $patient;
 
-        header("Location: ../view/hospital appointment booking/manageProfile.php");
+        header("Location: ../view/hospital_patient/patientManageProfile.php");
         exit();
     }
 
@@ -126,7 +126,7 @@ if ($action == "change_password") {
         $_SESSION['errors'] = ["Current password is incorrect."];
         
         $_SESSION['patient_profile'] = $patient;
-        header("Location: ../view/hospital appointment booking/manageProfile.php");
+        header("Location: ../view/hospital_patient/patientManageProfile.php");
         exit();
     }
 
@@ -137,7 +137,7 @@ if ($action == "change_password") {
     $_SESSION['success'] = "Password changed successfully.";
     $_SESSION['patient_profile'] = $patient;
 
-    header("Location: ../view/hospital appointment booking/manageProfile.php");
+    header("Location: ../view/hospital_patient/patientManageProfile.php");
     exit();
 }
 
@@ -146,5 +146,5 @@ $patient = getPatientByUserId($conn, $_SESSION['patient_id']);
 close($conn);
 $_SESSION['patient_profile'] = $patient;
 
-header("Location: ../view/hospital appointment booking/manageProfile.php");
+header("Location: ../view/hospital_patient/patientManageProfile.php");
 exit();
