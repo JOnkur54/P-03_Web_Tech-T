@@ -6,7 +6,7 @@ require_once "../model/patientModel.php";
 require_once "../model/close.php";
 
 if (!isset($_SESSION['patient_id'])) {
-    header("Location: ../view/hospital appointment booking/login.php");
+    header("Location: ../view/hospital_patient/patientLogin.php");
     exit();
 }
 
@@ -17,7 +17,7 @@ $patient_id = isset($patient['id']) ? $patient['id'] : null;
 if (!$patient_id) {
     close($conn);
     $_SESSION['errors'] = ["Patient not found."];
-    header("Location: ../view/hospital appointment booking/dependents.php");
+    header("Location: ../view/hospital_patient/patientDependents.php");
     exit();
 }
 
@@ -34,7 +34,7 @@ if (isset($_GET['action']) && $_GET['action'] == "edit_form" && isset($_GET['id'
     if (!$dependent) {
         close($conn);
         $_SESSION['errors'] = ["Dependent not found."];
-        header("Location: ../view/hospital appointment booking/dependents.php");
+        header("Location: ../view/hospital_patient/patientDependents.php");
         exit();
     }
     
@@ -44,7 +44,7 @@ if (isset($_GET['action']) && $_GET['action'] == "edit_form" && isset($_GET['id'
     $_SESSION['dependents'] = $dependents;
     $_SESSION['edit_dependent'] = $dependent;
     
-    header("Location: ../view/hospital appointment booking/dependents.php");
+    header("Location: ../view/hospital_patient/patientDependents.php");
     exit();
 }
 
@@ -67,7 +67,7 @@ if (isset($_GET['action']) && $_GET['action'] == "delete" && isset($_GET['id']))
     close($conn);
     $_SESSION['dependents'] = $dependents;
 
-    header("Location: ../view/hospital appointment booking/dependents.php");
+    header("Location: ../view/hospital_patient/patientDependents.php");
     exit();
 }
 
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         close($conn);
         $_SESSION['dependents'] = $dependents;
 
-        header("Location: ../view/hospital appointment booking/dependents.php");
+        header("Location: ../view/hospital_patient/patientDependents.php");
         exit();
     }
 
@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     close($conn);
     $_SESSION['dependents'] = $dependents;
 
-    header("Location: ../view/hospital appointment booking/dependents.php");
+    header("Location: ../view/hospital_patient/patientDependents.php");
     exit();
 }
 
@@ -129,5 +129,5 @@ $dependents = getPatientDependents($conn, $patient_id);
 close($conn);
 $_SESSION['dependents'] = $dependents;
 
-header("Location: ../view/hospital appointment booking/dependents.php");
+header("Location: ../view/hospital_patient/patientDependents.php");
 exit();
