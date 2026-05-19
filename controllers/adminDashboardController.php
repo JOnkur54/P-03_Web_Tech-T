@@ -20,6 +20,7 @@ $_SESSION['dash_today_appts']     = adminGetTodayAppointments($conn);
 $_SESSION['dash_recent_patients'] = adminGetRecentPatients($conn);
 $_SESSION['dash_pending_doctors'] = adminGetPendingDoctorCount($conn);
 
+
 close($conn);
 
 header("Location: ../view/hospital_admin/adminDashboard.php");
