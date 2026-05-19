@@ -9,3 +9,4 @@ $_SESSION['performance_data'] = adminGetDoctorPerformance($conn);
 close($conn);
 header("Location: ../view/hospital_admin/adminDoctorPerformance.php");
 exit();
+?>
