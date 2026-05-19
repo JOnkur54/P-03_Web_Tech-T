@@ -56,6 +56,7 @@
     justify-content: center;
     font-weight: 600;
     font-size: 16px;
+    
 }
 
 .user-info {
