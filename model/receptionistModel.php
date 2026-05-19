@@ -9,6 +9,7 @@
 
 function receptionistGetUserByEmail($conn, $email)
 {
+    
     $email = mysqli_real_escape_string($conn, $email);
     $sql = "SELECT * FROM users WHERE email = '$email' AND role = 'receptionist' LIMIT 1";
     $result = mysqli_query($conn, $sql);
