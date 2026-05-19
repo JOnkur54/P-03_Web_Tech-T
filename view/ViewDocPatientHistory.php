@@ -23,6 +23,7 @@ $patient_name = "Patient";
 if (!empty($history)) {
     echo "No previous patients";
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +68,7 @@ if (!empty($history)) {
 
     <div class="main-content">
         <div class="header">
-            <h1>Patient History</h1>
+            <h1>Patient History: <?php echo $patient_name; ?></h1>
             <a href="ViewDocDashboard.php" class="btn btn-secondary" style="background-color: var(--secondary); color: var(--primary); text-decoration: none; padding: 10px 15px; border-radius: 8px; font-size: 14px; font-weight: 500;">Back to Dashboard</a>
         </div>
 

@@ -5,6 +5,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'doctor') {
     exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,4 +72,5 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'doctor') {
 
     <script src="js/validate.js" defer></script>
 </body>
+
 </html>

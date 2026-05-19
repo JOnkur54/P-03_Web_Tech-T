@@ -18,14 +18,17 @@
     box-sizing: border-box;
 }
 
+/* Base Body Styles */
 body {
     font-family: 'Arial', sans-serif;
     color: var(--dark);
     background-color: #f3f4f6;
+    display: flex;
+    min-height: 100vh;
 }
 /* Fixed CSS */
 
-/* Login Page */
+/* Login Page Styles */
 .login-body {
     display: flex;
     align-items: center;
@@ -71,6 +74,7 @@ body {
     color: var(--gray);
 }
 
+/* Login Form Elements */
 .login-form .form-group {
     margin-bottom: 20px;
 }
@@ -126,6 +130,40 @@ body {
     border: 1px solid #fecaca;
 }
 
+.login-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--gray);
+}
+
+/* Alert & Error Styles */
+.alert {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.alert-danger {
+    background-color: #fee2e2;
+    color: var(--danger);
+    border: 1px solid #fecaca;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.error-input {
+    border-color: #dc3545 !important;
+    outline: none;
+}
+
+/* Buttons */
 .btn {
     display: inline-block;
     width: 100%;
@@ -162,4 +200,7 @@ body {
     margin-top: 20px;
     font-size: 13px;
     color: var(--gray);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
 }
