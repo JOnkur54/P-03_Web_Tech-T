@@ -17,5 +17,7 @@ $_SESSION['patients'] = adminGetAllPatients($conn, $search);
 $_SESSION['patient_search'] = $search;
 close($conn);
 
+
 header("Location: ../view/hospital_admin/adminManagePatients.php");
 exit();
+?>
