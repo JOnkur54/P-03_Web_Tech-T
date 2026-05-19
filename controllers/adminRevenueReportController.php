@@ -12,3 +12,4 @@ $_SESSION['revenue_period'] = $period;
 close($conn);
 header("Location: ../view/hospital_admin/adminRevenueReport.php");
 exit();
+?>
