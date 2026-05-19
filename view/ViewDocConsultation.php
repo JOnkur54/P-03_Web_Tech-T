@@ -29,7 +29,6 @@ if (!$appointment) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consultation Notes - MediBook</title>
     <link rel="stylesheet" href="css/doctor.css">
-    <!-- fixed CSS -->
     <style>
         body { display: flex; min-height: 100vh; background-color: #f3f4f6; }
         .sidebar { width: 250px; background-color: white; border-right: 1px solid var(--light-gray); padding: 20px; display: flex; flex-direction: column; }
@@ -45,10 +44,13 @@ if (!$appointment) {
         .form-container { background-color: white; padding: 30px; border-radius: 12px; box-shadow: var(--shadow); max-width: 600px; }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: var(--dark); }
-        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid var(--light-gray); border-radius: 8px; font-size: 14px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid var(--light-gray); border-radius: 8px; font-size: 14px; box-sizing: border-box; }
         .form-group textarea { height: 100px; resize: vertical; }
         .logout-btn { margin-top: auto; color: var(--danger); text-decoration: none; font-size: 14px; font-weight: 500; padding: 12px; display: flex; align-items: center; border-radius: 8px; }
         .logout-btn:hover { background-color: #fee2e2; }
+        /* Added for JS error messages */
+        .error-text { color: #dc2626; font-size: 12px; margin-top: 4px; display: block; min-height: 18px; }
+        .form-group input.error, .form-group textarea.error { border-color: #dc2626; }
     </style>
 </head>
 <body>
@@ -77,29 +79,36 @@ if (!$appointment) {
         </div>
 
         <div class="form-container">
-            <form action="../controllers/ContDocConsultation.php" method="POST">
+            <form id="consultationForm" action="../controllers/ContDocConsultation.php" method="POST">
                 <input type="hidden" name="appointment_id" value="<?php echo $appointment_id; ?>">
                 <input type="hidden" name="patient_id" value="<?php echo $appointment['patient_id']; ?>">
                 
                 <div class="form-group">
                     <label for="symptoms">Symptoms</label>
-                    <textarea id="symptoms" name="symptoms" required placeholder="Describe patient symptoms..."></textarea>
+                    <textarea id="symptoms" name="symptoms" placeholder="Describe patient symptoms..."></textarea>
+                    <span class="error-text" id="symptoms-error"></span>
                 </div>
                 <div class="form-group">
                     <label for="diagnosis">Diagnosis</label>
-                    <textarea id="diagnosis" name="diagnosis" required placeholder="Enter diagnosis..."></textarea>
+                    <textarea id="diagnosis" name="diagnosis" placeholder="Enter diagnosis..."></textarea>
+                    <span class="error-text" id="diagnosis-error"></span>
                 </div>
                 <div class="form-group">
                     <label for="prescription">Prescription Details</label>
-                    <textarea id="prescription" name="prescription" required placeholder="Medication, dosage, instructions..."></textarea>
+                    <textarea id="prescription" name="prescription" placeholder="Medication, dosage, instructions..."></textarea>
+                    <span class="error-text" id="prescription-error"></span>
                 </div>
                 <div class="form-group">
                     <label for="follow_up_date">Follow-up Date (Optional)</label>
-                    <input type="date" id="follow_up_date" name="follow_up_date" min="<?php echo date('Y-m-d'); ?>">
+                    <input type="date" id="follow_up_date" name="follow_up_date">
+                    <span class="error-text" id="follow_up_date-error"></span>
                 </div>
                 <button type="submit" class="btn btn-primary">Complete Consultation</button>
             </form>
         </div>
     </div>
+
+    <!-- Link to external validation script -->
+    <script src="js/validate_consultation.js" defer></script>
 </body>
 </html>
