@@ -10,3 +10,4 @@ $_SESSION['all_bills']       = adminGetAllBills($conn);
 close($conn);
 header("Location: ../view/hospital_admin/adminBillingDashboard.php");
 exit();
+?>
