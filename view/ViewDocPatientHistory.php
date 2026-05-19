@@ -31,6 +31,7 @@ if (!empty($history)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient History - MediBook</title>
     <link rel="stylesheet" href="css/doctor.css">
+        <!-- fixed CSS -->
     <style>
         body { display: flex; min-height: 100vh; background-color: #f3f4f6; }
         .sidebar { width: 250px; background-color: white; border-right: 1px solid var(--light-gray); padding: 20px; display: flex; flex-direction: column; }
