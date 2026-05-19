@@ -97,3 +97,4 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['action']) && $_POST['a
 
 header("Location: ../view/hospital_patient/patientDashboard.php");
 exit();
+?>
