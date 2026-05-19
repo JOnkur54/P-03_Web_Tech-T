@@ -13,6 +13,7 @@ function adminGetUserByEmailAndRole($conn, $email, $role)
     $result = mysqli_query($conn, $sql);
     if ($result && mysqli_num_rows($result) > 0) {
         return mysqli_fetch_assoc($result);
+        
     }
     return null;
 }

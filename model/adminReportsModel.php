@@ -8,6 +8,7 @@ function adminGetPolicies($conn)
     $result = mysqli_query($conn, $sql);
     if ($result && mysqli_num_rows($result) > 0) {
         return mysqli_fetch_assoc($result);
+        
     }
     return ['min_cancel_hours' => 24, 'max_advance_days' => 30, 'default_fee' => 500];
 }

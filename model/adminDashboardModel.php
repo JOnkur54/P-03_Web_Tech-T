@@ -14,6 +14,7 @@ function adminGetTodayAppointmentCount($conn)
     $result = mysqli_query($conn, $sql);
     if ($result && $row = mysqli_fetch_assoc($result)) {
         return (int)$row['total'];
+        
     }
     return 0;
 }

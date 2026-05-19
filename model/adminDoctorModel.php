@@ -131,6 +131,7 @@ function adminDeactivateDoctorById($conn, $doctor_id)
     $user_id = (int)$doc['user_id'];
     $sql = "UPDATE users SET is_active = 0 WHERE id = $user_id";
     return mysqli_query($conn, $sql);
+    
 }
 
 function adminActivateDoctorById($conn, $doctor_id)
