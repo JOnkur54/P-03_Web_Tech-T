@@ -6,16 +6,16 @@ require_once "../model/patientModel.php";
 require_once "../model/close.php";
 
 if (!isset($_SESSION['patient_id'])) {
-    header("Location: ../view/hospital appointment booking/login.php");
+    header("Location: ../view/hospital_patient/patientLogin.php");
     exit();
 }
 
 $conn = connect();
-$announcements = getPatientAnnouncements($conn);
+$announcements = getPatientAnnouncementsAll($conn);
 close($conn);
 
 $_SESSION['announcements'] = $announcements;
 
-header("Location: ../view/hospital appointment booking/announcements.php");
+header("Location: ../view/hospital_patient/patientAnnouncements.php");
 exit();
 ?>
