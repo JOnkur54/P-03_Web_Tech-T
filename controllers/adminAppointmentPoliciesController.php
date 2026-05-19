@@ -10,3 +10,4 @@ $_SESSION['policies'] = adminGetPolicies($conn);
 close($conn);
 header("Location: ../view/hospital_admin/adminAppointmentPolicies.php");
 exit();
+?>
