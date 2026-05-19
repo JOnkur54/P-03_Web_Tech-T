@@ -6,7 +6,7 @@ require_once "../model/patientModel.php";
 require_once "../model/close.php";
 
 if (!isset($_SESSION['patient_id'])) {
-    header("Location: ../view/hospital appointment booking/login.php");
+    header("Location: ../view/hospital_patient/patientLogin.php");
     exit();
 }
 
@@ -28,7 +28,7 @@ if (isset($_GET['action']) && $_GET['action'] == "cancel") {
     if (!$patient) {
         close($conn);
         $_SESSION['errors'] = ["Patient not found."];
-        header("Location: ../view/hospital appointment booking/upcomingAppointments.php");
+        header("Location: ../view/hospital_patient/patientUpcomingAppointments.php");
         exit();
     }
 
@@ -42,7 +42,7 @@ if (isset($_GET['action']) && $_GET['action'] == "cancel") {
         $_SESSION['errors'] = ["Failed to cancel appointment."];
     }
 
-    header("Location: ../view/hospital appointment booking/upcomingAppointments.php");
+    header("Location: ../view/hospital_patient/patientUpcomingAppointments.php");
     exit();
 }
 
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['action']) && $_POST['a
 
     if ($doctor_id == 0 || $appointment_date == "" || $appointment_time == "") {
         $_SESSION['errors'] = ["Please fill in all required fields."];
-        header("Location: ../view/hospital appointment booking/bookAppointment.php");
+        header("Location: ../view/hospital_patient/patientBookAppointment.php");
         exit();
     }
 
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['action']) && $_POST['a
     if (!$patient) {
         close($conn);
         $_SESSION['errors'] = ["Patient profile not found."];
-        header("Location: ../view/hospital appointment booking/bookAppointment.php");
+        header("Location: ../view/hospital_patient/patientBookAppointment.php");
         exit();
     }
 
@@ -91,9 +91,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['action']) && $_POST['a
         $_SESSION['errors'] = ["Failed to book appointment."];
     }
 
-    header("Location: ../view/hospital appointment booking/bookAppointment.php");
+    header("Location: ../view/hospital_patient/patientBookAppointment.php");
     exit();
 }
 
-header("Location: ../view/hospital appointment booking/patientDashboard.php");
+header("Location: ../view/hospital_patient/patientDashboard.php");
 exit();
